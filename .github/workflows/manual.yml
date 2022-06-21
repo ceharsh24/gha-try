@@ -8,5 +8,8 @@ jobs:
   greet:
     runs-on: ubuntu-latest
     steps:
-    - name: Send greeting
-      run: echo "Hello There"
+      - name: Send greeting
+        run: echo "Hello There"
+      - name: Reusable
+        uses: ceharsh24/gha-try/blob/main/.github/workflows/reusable-workflow.yml@master
+    
