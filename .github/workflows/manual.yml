@@ -14,6 +14,6 @@ jobs:
           repository: ceharsh24/gha-try
       - name: Send greeting
         run: echo "Hello There"
-      - name: Reusable
-        uses: ceharsh24/gha-try/.github/workflows/reusable-workflow.yml@main
-    
+  
+  reusable-job:
+    uses: ceharsh24/gha-try/.github/workflows/reusable-workflow.yml@main
