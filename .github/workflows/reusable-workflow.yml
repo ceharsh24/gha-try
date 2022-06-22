@@ -1,7 +1,7 @@
 name: 'Reusable Workflow'
 on:
   workflow_call:
-  
+  workflow_dispatch:
 jobs:
   output:
     name: "Trying Re-usable Workflow"
