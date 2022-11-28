@@ -1,0 +1,19 @@
+name: "Verify"
+on:
+  pull_request_target:
+  push:
+    branches:
+    - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
+  
+jobs:
+  output:
+    name: "Workflow"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Step-1"
+        run: |
+          echo "Verify"
