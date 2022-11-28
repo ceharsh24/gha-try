@@ -20,4 +20,5 @@ jobs:
           time: '30s'
       - name: "Step-1"
         run: |
+          echo ${{ github.workflow }}-${{ github.head_ref }}
           echo "Verify"
