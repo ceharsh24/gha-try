@@ -6,7 +6,7 @@ on:
     - main
 
 concurrency:
-  group: ${{ github.ref != 'refs/heads/main' && format('{0}-{1}', github.workflow, github.ref ) || format('{0}-{1}', github.workflow, github.head_ref ) }}
+  group: ${{ github.event_name == 'pull_request_target' && format('{0}-{1}', github.workflow, github.ref ) || format('{0}-{1}', github.workflow, github.head_ref ) }}
   cancel-in-progress: true
   
 jobs:
