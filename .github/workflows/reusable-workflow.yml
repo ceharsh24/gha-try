@@ -7,9 +7,14 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'pull_request_target' }}
 jobs:
   output:
-    name: "Trying Re-usable Workflow"
+    name: "Workflow"
     runs-on: ubuntu-latest
     steps:
+      - name: Sleep for 30 seconds
+        uses: jakejarvis/wait-action@master
+        with:
+          time: '30s'
       - name: "Step-1"
         run: |
-          echo "Inside Reusable Workflow"
+          echo ${{ github.workflow }}-${{ github.head_ref }}
+          echo "Verify"
