@@ -10,15 +10,5 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'pull_request_target' }}
   
 jobs:
-  output:
-    name: "Workflow"
-    runs-on: ubuntu-latest
-    steps:
-      - name: Sleep for 30 seconds
-        uses: jakejarvis/wait-action@master
-        with:
-          time: '30s'
-      - name: "Step-1"
-        run: |
-          echo ${{ github.workflow }}-${{ github.head_ref }}
-          echo "Verify"
+  reusable-job:
+    uses: ceharsh24/gha-try/.github/workflows/reusable-workflow.yml@main
