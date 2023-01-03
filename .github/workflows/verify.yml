@@ -4,11 +4,7 @@ on:
   push:
     branches:
     - main
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
-  cancel-in-progress: ${{ github.event_name == 'pull_request_target' }}
-  
+    
 jobs:
   reusable-job:
     uses: ceharsh24/gha-try/.github/workflows/reusable-workflow.yml@main
