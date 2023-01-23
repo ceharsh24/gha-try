@@ -1,8 +1,10 @@
 name: Manual workflow
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '*/5 * * * *'
+  pull_request_target:
+  push:
+    branches:
+      - master
 
 jobs:
   greet:
