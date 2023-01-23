@@ -8,3 +8,5 @@ on:
 jobs:
   reusable-job:
     uses: ceharsh24/gha-try/.github/workflows/reusable-workflow.yml@main
+    with:
+      ref: ${{ github.event.pull_request.head.ref }}
