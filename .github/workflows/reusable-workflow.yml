@@ -1,6 +1,10 @@
 name: 'Reusable Workflow'
 on:
   workflow_call:
+    inputs:
+      ref:
+        description: "Ref"
+        type:  string
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
@@ -10,11 +14,8 @@ jobs:
     name: "Workflow"
     runs-on: ubuntu-latest
     steps:
-      - name: Sleep for 30 seconds
-        uses: jakejarvis/wait-action@master
-        with:
-          time: '30s'
       - name: "Step-1"
         run: |
           echo ${{ github.workflow }}-${{ github.head_ref }}
+          echo ${{ github.event.workflow_run.head }}
           echo "Verify"
